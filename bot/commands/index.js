@@ -11,5 +11,4 @@ glob.sync('bot/commands/*.js').forEach( function(file) {
   }
 });
 
-console.log(commands);
 module.exports = commands;
