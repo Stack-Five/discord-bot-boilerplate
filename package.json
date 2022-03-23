@@ -1,0 +1,38 @@
+{
+  "name": "discord-bot-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate for creating interaction-based Discord bots",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stack-Five/discord-bot-boilerplate.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Boilerplate",
+    "NodeJS",
+    "JavaScript"
+  ],
+  "author": "Stack Five",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stack-Five/discord-bot-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Stack-Five/discord-bot-boilerplate#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "glob": "^7.2.0",
+    "isomorphic-fetch": "^3.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
