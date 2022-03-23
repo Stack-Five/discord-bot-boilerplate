@@ -23,13 +23,13 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 11) In the lefthand navigation, click on the `OAuth2` button.
 12) Copy the `Client ID` value, and paste it as the `DISCORD_CLIENT_ID` value in your `.env` file.
 13) In your Discord application, click the `+` icon in your server list (the `Add a Server` button). Click on `Create My Own`, `For me and my friends`, add a name, and then click `Create`.
-14) You should now see your newly created Discord server in your server list. Right click on it, and click `Copy ID` (at the bottom of the list). If you don't see this option, you may need to enable. See instructions below.
+14) You should now see your newly created Discord server in your server list. Right click on it, and click `Copy ID` (at the bottom of the list). If you don't see this option, you may need to enable [Developer Mode](#enable-discord-developer-mode). See instructions below.
 15) In your `.env` file, paste your Discord server ID into the `DISCORD_GUILD_ID` parameter. Note: The discord.js docs will refer to "Servers" as "Guilds".
 16) Follow the bot installation steps below to add your newly created bot to your new Discord server!
 
 ## Installing your bot
 
-1) If you closed the Discord developer portal, navigate to [Discord developer portal](https://discord.com/developers/applications) and select the application you created in the previous steps.
+1) If you closed the Discord developer portal, navigate to the [Discord developer portal](https://discord.com/developers/applications) and select the application you created in the previous steps.
 2) Click on the `OAuth 2` button in the navigation bar.
 3) Click on the `URL Generator` option in the navigation bar.
 4) In the list of permission options, click on `Bot`. A new set of bot permissions will appear below.
