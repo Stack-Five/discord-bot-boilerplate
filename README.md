@@ -32,7 +32,7 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 1) If you closed the Discord developer portal, navigate to the [Discord developer portal](https://discord.com/developers/applications) and select the application you created in the previous steps.
 2) Click on the `OAuth 2` button in the navigation bar.
 3) Click on the `URL Generator` option in the navigation bar.
-4) In the list of permission options, click on `Bot`. A new set of bot permissions will appear below.
+4) In the list of permission options, click on `Bot` and `applications.commands`. A new set of bot permissions will appear below.
 5) In the bot permissions section, click on `Administrator`.
 6) At the bottom of the page, you will see a generated URL. Click the `Copy` button, and paste it into a new tab in your web browser.
 7) In the `Add to Server` dropdown, select the server you created in the previous steps, and then click `Continue`.
