@@ -9,5 +9,5 @@ const express = require('express');
 const app = express();
 
 app.listen(PORT, async() => {
-  console.log(`App listening on port ${PORT}...`);
+  console.log(`App listening on port ${PORT}, mounting Discord bot...`);
 });
