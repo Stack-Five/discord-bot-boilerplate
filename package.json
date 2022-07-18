@@ -33,6 +33,6 @@
     "express": "^4.17.3",
     "glob": "^7.2.0",
     "isomorphic-fetch": "^3.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.19"
   }
 }
