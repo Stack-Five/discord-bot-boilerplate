@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
-const { GatewayIntentBits, Collection, Partials } = require('discord.js');
-
-const deployCommands = require('./deployCommands');
+const {
+  GatewayIntentBits,
+  Collection,
+  Partials,
+} = require('discord.js');
 
 const intents = [
   GatewayIntentBits.Guilds,

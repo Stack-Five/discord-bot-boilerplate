@@ -13,5 +13,6 @@ console.log('Mounting Discord bot...');
 InitializeBot().then(() => {
   app.listen(PORT, async() => {
     console.log(`App listening on port ${PORT}`);
+    console.log('Bot is ready to receive commands!');
   });
 });
