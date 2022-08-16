@@ -7,7 +7,7 @@ module.exports = () => {
   // ******** Messages ********
   // **************************
   client.on('messageCreate', async (message) => {
-    messageListeners['messages'].forEach(listener => listener(message, 'creat'));
+    messageListeners['messages'].forEach(listener => listener(message, 'create'));
   });
 
   client.on('messageDelete', async (message) => {
