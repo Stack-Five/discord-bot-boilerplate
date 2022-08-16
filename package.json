@@ -34,5 +34,8 @@
     "glob": "^7.2.0",
     "isomorphic-fetch": "^3.0.0",
     "nodemon": "^2.0.19"
+  },
+  "devDependencies": {
+    "eslint": "^8.22.0"
   }
 }
