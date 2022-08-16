@@ -8,7 +8,6 @@ const {
   DISCORD_API_VERSION
 } = process.env;
 
-
 module.exports = async (client) => {
   const commandFiles = require('../slashCommands');
   const commands = [];

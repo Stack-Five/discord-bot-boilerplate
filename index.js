@@ -1,6 +1,6 @@
 require('dotenv').config();
 require('isomorphic-fetch');
-const InitializeBot = require('./bot/configuration/initialize');
+const InitializeBot = require('./src/configuration/initialize');
 
 const PORT = process.env.PORT || 3000;
 

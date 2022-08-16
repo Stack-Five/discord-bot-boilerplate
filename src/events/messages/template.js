@@ -1,9 +1,10 @@
-const { client } = require('../configuration/discordBot');
+const { client } = require('../../configuration/bot');
 
-module.exports = async (message) => {
+// Sample: If user sends 'ping' in a channel, the bot will respond with 'Pong'
+module.exports = async (message, action) => {
   try {
     if (message.author.bot) return;
-    console.log('== incoming message');
+
     if (message.content.toUpperCase() === 'PING') {
       const channel = await client.channels.fetch(message.channel.id);
 
