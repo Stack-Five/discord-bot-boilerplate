@@ -8,9 +8,8 @@ const {
   DISCORD_API_VERSION
 } = process.env;
 
-const commandFiles = require('../commands');
-
-module.exports = (client) => {
+module.exports = async (client) => {
+  const commandFiles = require('../slashCommands');
   const commands = [];
 
   for (const command of commandFiles) {
@@ -24,6 +23,6 @@ module.exports = (client) => {
     .put(Routes.applicationGuildCommands(DISCORD_CLIENT_ID, DISCORD_GUILD_ID), {
       body: commands,
     })
-    .then(() => console.log('Successfully registered application commands.'))
+    .then(console.log('Successfully registered application commands, preparing bot...'))
     .catch(console.error);
 };

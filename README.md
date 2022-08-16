@@ -17,7 +17,7 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 5) Click on the `Bot` button in the navigation on the lefthand side of the page.
 6) Click on the `Add Bot` button, and then `Yes, do it!` in the pop up modal. Note: If you application name is not unique, you will receive an error in this step. You can change your application name in the `General Information` tab to something unique, and then try this step again.
 7) If you want your bot to be only privately accessible, make sure you turn off the `Public Bot` toggle. This can be changed later.
-8) Make sure that the `Presence Intent`, `Server Members Intent`, and `Message Content Intent` toggles are all turned on.
+8) Make sure that the `Presence Intent`, `Server Members Intent`, and `Message Content Intent` toggles are all turned on, and `Requires OAauth2 Code Grant` is turned off.
 9) Click the `Save Changes` button at the bottom of the page.
 10) Scroll to the top of the page, and click on the `Reset Token` button underneath the bot icon, and then click `Yes, do it` in the pop up modal. This will generate a secret token that will only be displayed once. Copy and paste this into the `.env` file you created in the root of your project for the `DISCORD_BOT_TOKEN` variable.
 11) In the lefthand navigation, click on the `OAuth2` button.

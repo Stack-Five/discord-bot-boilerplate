@@ -5,7 +5,7 @@ const path = require('path');
 
 const commands = [];
 
-glob.sync('bot/commands/*.js').forEach( function(file) {
+glob.sync('src/slashCommands/**/*.js').forEach( function(file) {
   if (file.indexOf('index.js') === -1) {
     commands.push(require( path.resolve( file ) ));
   }
