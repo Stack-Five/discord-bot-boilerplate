@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
-const { Intents, Collection } = require('discord.js');
+const { GatewayIntentBits, Collection } = require('discord.js');
 
-const deployCommands   = require('./deployCommands');
+const deployCommands = require('./deployCommands');
 
 const intents = [
-  Intents.FLAGS.GUILDS,
-  Intents.FLAGS.GUILD_MESSAGES,
-  Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+  GatewayIntentBits.Guilds,
+  GatewayIntentBits.GuildMessages,
+  GatewayIntentBits.GuildMessageReactions,
 ];
 
 const partials = ['MESSAGE', 'CHANNEL', 'REACTION'];
@@ -26,7 +26,9 @@ class Bot {
     this.client.commands = new Collection();
 
     await this.client.login(process.env.DISCORD_BOT_TOKEN);
+
     await deployCommands(this.client);
+
     this.initialized = true;
 
     return this;
