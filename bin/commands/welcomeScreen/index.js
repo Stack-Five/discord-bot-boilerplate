@@ -5,6 +5,7 @@ const exec = require('child_process').exec;
 const startSetupWizard = require('../setup/startSetupWizard');
 const handleResetEnvironment = require('../setup/handleResetEnvironment');
 const installBot = require('../setup/installBot');
+const startSlashCommandWizard = require('../slashCommands/startSlashCommandWizard');
 
 const {
   DISCORD_BOT_TOKEN,
@@ -69,10 +70,12 @@ module.exports = welcomeScreen = async () => {
       welcomeScreen();
       break;
     case 'generateEvent':
-      console.clear();
+      welcomeScreen();
       break;
     case 'generateSlashCommand':
-      console.clear();
+      console.clear()
+      await startSlashCommandWizard();
+      welcomeScreen();
       break;
     case 'runDev':
       console.clear();

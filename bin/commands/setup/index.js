@@ -8,4 +8,5 @@ module.exports = {
   requestBotToken: require('./requestBotToken'),
   requestGuildId: require('./requestGuildId'),
   askForKeys: require('./askForKeys'),
+  saveKeys: require('./saveKeys'),
 }
