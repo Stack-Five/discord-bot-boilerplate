@@ -76,7 +76,7 @@ module.exports = initial = async () => {
       break;
     case 'runDev':
       console.clear();
-      const t = require('../../../../')
+      const t = require('../../../')
       exec('yarn dev',
         (error, stdout, stderr) => {
             console.log(`stdout: ${stdout}`);

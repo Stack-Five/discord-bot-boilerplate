@@ -8,7 +8,7 @@ module.exports = async (keys) => {
   }, '');
 
   fs.writeFileSync(
-    path.join(__dirname, '../../../../.env'),
+    path.join(__dirname, '../../../.env'),
     formattedEnvVariables
   );
 
