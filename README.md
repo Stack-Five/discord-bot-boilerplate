@@ -21,7 +21,7 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 9) Click the `Save Changes` button at the bottom of the page.
 10) Scroll to the top of the page, and click on the `Reset Token` button underneath the bot icon, and then click `Yes, do it` in the pop up modal. This will generate a secret token that will only be displayed once. Copy and paste this into the `.env` file you created in the root of your project for the `DISCORD_BOT_TOKEN` variable.
 11) In the lefthand navigation, click on the `OAuth2` button.
-12) Copy the `Client ID` value, and paste it as the `DISCORD_CLIENT_ID` value in your `.env` file.
+12) Copy the `Client ID` value, and paste it as the `DISCORD_APP_ID` value in your `.env` file.
 13) In your Discord application, click the `+` icon in your server list (the `Add a Server` button). Click on `Create My Own`, `For me and my friends`, add a name, and then click `Create`.
 14) You should now see your newly created Discord server in your server list. Right click on it, and click `Copy ID` (at the bottom of the list). If you don't see this option, you may need to enable [Developer Mode](#enable-discord-developer-mode). See instructions below.
 15) In your `.env` file, paste your Discord server ID into the `DISCORD_GUILD_ID` parameter. Note: The discord.js docs will refer to "Servers" as "Guilds".

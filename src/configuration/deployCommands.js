@@ -2,7 +2,7 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
 const {
-  DISCORD_CLIENT_ID,
+  DISCORD_APP_ID,
   DISCORD_GUILD_ID,
   DISCORD_BOT_TOKEN,
   DISCORD_API_VERSION
@@ -20,7 +20,7 @@ module.exports = async (client) => {
   const rest = new REST({ version: DISCORD_API_VERSION }).setToken(DISCORD_BOT_TOKEN);
 
   return rest
-    .put(Routes.applicationGuildCommands(DISCORD_CLIENT_ID, DISCORD_GUILD_ID), {
+    .put(Routes.applicationGuildCommands(DISCORD_APP_ID, DISCORD_GUILD_ID), {
       body: commands,
     })
     .then(console.log('Successfully registered application commands, preparing bot...'))
