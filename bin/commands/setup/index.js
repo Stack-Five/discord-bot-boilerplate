@@ -1,7 +1,6 @@
 module.exports = {
-  initial: require('./initial'),
-  handleReset: require('./handleReset'),
   startSetupWizard: require('./startSetupWizard'),
+  handleResetEnvironment: require('./handleResetEnvironment'),
   installBot: require('./installBot'),
   askIfAppSetUp: require('./askIfAppSetUp'),
   devPortalSetup: require('./devPortalSetup'),

@@ -3,7 +3,7 @@
 require('dotenv').config();
 const cli = require('commander');
 
-const { initial } = require('./commands/setup');
+const welcomeScreen = require('./commands/welcomeScreen');
 
 cli.description("Manage your Discord Bot Boilerplate using the CLI tool!");
 cli.name("Discord Bot Boilerplate CLI");
@@ -14,8 +14,8 @@ cli.helpOption(false);
 cli
   .command('setup')
   .description( 'Set up your environment and install your bot to your development Discord server')
-  .action(initial);
+  .action(welcomeScreen);
 
-cli.action(initial);
+cli.action(welcomeScreen);
 
 cli.parse(process.argv);

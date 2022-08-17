@@ -2,9 +2,9 @@ const inquirer = require('inquirer');
 const open = require('open');
 const exec = require('child_process').exec;
 
-const startSetupWizard = require('./startSetupWizard');
-const handleReset = require('./handleReset');
-const installBot = require('./installBot');
+const startSetupWizard = require('../setup/startSetupWizard');
+const handleResetEnvironment = require('../setup/handleResetEnvironment');
+const installBot = require('../setup/installBot');
 
 const {
   DISCORD_BOT_TOKEN,
@@ -13,7 +13,7 @@ const {
   DISCORD_API_VERSION
 } = process.env;
 
-module.exports = initial = async () => {
+module.exports = welcomeScreen = async () => {
   const answer = await inquirer
     .prompt([
       {
@@ -58,15 +58,15 @@ module.exports = initial = async () => {
       console.clear();
 
       if (!!DISCORD_BOT_TOKEN || !!DISCORD_APP_ID || !!DISCORD_GUILD_ID || !!DISCORD_API_VERSION) {
-        await handleReset();
+        await handleResetEnvironment();
       }
 
       await startSetupWizard();
-      initial();
+      welcomeScreen();
       break;
     case 'install':
       await installBot();
-      initial();
+      welcomeScreen();
       break;
     case 'generateEvent':
       console.clear();
