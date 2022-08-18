@@ -15,6 +15,8 @@ const {
 } = process.env;
 
 module.exports = welcomeScreen = async () => {
+  console.clear();
+
   const answer = await inquirer
     .prompt([
       {
@@ -28,10 +30,10 @@ module.exports = welcomeScreen = async () => {
             name: '🛠  Set up your bot',
             value: 'setup'
           },
-          {
+          ...(!!DISCORD_APP_ID ? [{
             name: '🤖 Install the bot on your Discord server',
             value: 'install'
-          },
+          }] : []),
           {
             name: '💻 Run the bot in dev mode',
             value: 'runDev'

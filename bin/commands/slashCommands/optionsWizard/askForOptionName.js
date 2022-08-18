@@ -8,13 +8,13 @@ module.exports = async () => {
       {
         type: 'input',
         name: 'optionName',
-        message: `What would you like this option to be called?\n${chalk.blue('Example: category')}\n`,
+        message: `What would you like this option to be called?\n${chalk.blue('Note: NOTE: Your option can only contain lower case characters and dashes (Example: favourite-fruit)')}\n`,
       },
     ]);
 
   let { optionName } = answer;
   
-  optionName = camelize(optionName);
+  optionName = optionName.replace(' ', '-').replace('/','').toLowerCase();
 
   console.clear();
   return optionName;

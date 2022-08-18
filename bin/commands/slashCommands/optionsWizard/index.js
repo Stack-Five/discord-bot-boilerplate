@@ -48,5 +48,7 @@ module.exports = async () => {
     }
   }
 
+  // Discord needs required fields first, otherwise deployment fails
+  options.sort((a, b) => b.required - a.required);
   return options;
 }

@@ -7,14 +7,15 @@ module.exports = async () => {
     .prompt([
       {
         type: 'input',
-        name: 'name',
-        message: `What would you like to name your command?\n${chalk.blue('NOTE: Your command must be camelcased (example: myCommand)')}\n`,
+        name: 'commandName',
+        message: `What would you like to name your command?\n${chalk.blue('NOTE: Your command can only contain lower case characters and dashes (example: my-command)')}\n`,
       },
     ]);
 
-  let { name } = answer;
-  name = camelize(name);
+  let { commandName } = answer;
+  commandName = commandName.replace(' ', '-').replace('/','').toLowerCase();
+  const fileName = camelize(commandName.replace('-', ' '));
 
   console.clear();
-  return name;
+  return { command: commandName, file: fileName };
 };

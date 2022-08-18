@@ -5,9 +5,9 @@ const cli = require('commander');
 
 const welcomeScreen = require('./commands/welcomeScreen');
 
-cli.description("Manage your Discord Bot Boilerplate using the CLI tool!");
-cli.name("Discord Bot Boilerplate CLI");
-cli.usage("<command>");
+cli.description('Manage your Discord Bot Boilerplate using the CLI tool!');
+cli.name('Discord Bot Boilerplate CLI');
+cli.usage('<command>');
 cli.addHelpCommand(false);
 cli.helpOption(false);
 
