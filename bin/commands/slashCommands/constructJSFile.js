@@ -48,4 +48,6 @@ module.exports = (configuration) => {
   const filePath = path.join(__dirname, `../../../src/slashCommands/${configuration.fileName}.js`);
 
   fs.writeFileSync(filePath, beautifiedCode);
+
+  return { path: filePath }
 }

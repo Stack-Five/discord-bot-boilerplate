@@ -18,6 +18,5 @@ module.exports = async () => {
     options,
   });
 
-  console.log(JSON.stringify(file));
-  console.log(chalk.green('✅ Congratulations! Your slash command has been created and will be deployed the next time you run your bot.\n'));
+  console.log(chalk.green(`✅ Congratulations! Your slash command has been created and will be deployed the next time you run your bot.\n   ${chalk.blue(`Your command was created at: ${file.path}`)}\n`));
 }

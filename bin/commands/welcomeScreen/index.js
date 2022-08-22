@@ -14,8 +14,15 @@ const {
   DISCORD_API_VERSION
 } = process.env;
 
-module.exports = welcomeScreen = async () => {
+let init = true;
+
+const handleInit = () => {
+  init = false;
   console.clear();
+}
+
+module.exports = welcomeScreen = async () => {
+  if (init) handleInit();
 
   const answer = await inquirer
     .prompt([
@@ -61,7 +68,8 @@ module.exports = welcomeScreen = async () => {
       console.clear();
 
       if (!!DISCORD_BOT_TOKEN || !!DISCORD_APP_ID || !!DISCORD_GUILD_ID || !!DISCORD_API_VERSION) {
-        await handleResetEnvironment();
+        const userWantsReset = await handleResetEnvironment();
+        if (!userWantsReset) return welcomeScreen();
       }
 
       await startSetupWizard();
@@ -95,4 +103,6 @@ module.exports = welcomeScreen = async () => {
       open('https://stackfive.io');
       break;
   }
+
+  init = false;
 };

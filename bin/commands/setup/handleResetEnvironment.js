@@ -24,10 +24,6 @@ module.exports = async () => {
   const { proceed } = answer;
   
   console.clear();
-  
-  if (!proceed) {
-    process.exit(1);
-  }
 
   return proceed;
 }

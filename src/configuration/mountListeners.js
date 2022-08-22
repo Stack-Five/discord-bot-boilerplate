@@ -7,70 +7,70 @@ module.exports = () => {
   // ******** Messages ********
   // **************************
   client.on('messageCreate', async (message) => {
-    messageListeners['messages'].forEach(listener => listener(message, 'create'));
+    messageListeners['messages']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('messageDelete', async (message) => {
-    messageListeners['messages'].forEach(listener => listener(message, 'delete'));
+    messageListeners['messages']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('messageDeleteBulk', async (message) => {
-    messageListeners['messages'].forEach(listener => listener(message, 'deleteBulk'));
+    messageListeners['messages']?.forEach(listener => listener(message, 'deleteBulk'));
   });
 
   client.on('messageUpdate', async (message) => {
-    messageListeners['messages'].forEach(listener => listener(message, 'update'));
+    messageListeners['messages']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('messageReactionAdd', async (message) => {
-    messageListeners['messageReactions'].forEach(listener => listener(message, 'add'));
+    messageListeners['messageReactions']?.forEach(listener => listener(message, 'add'));
   });
 
   client.on('messageReactionRemove', async (message) => {
-    messageListeners['messageReactions'].forEach(listener => listener(message, 'remove'));
+    messageListeners['messageReactions']?.forEach(listener => listener(message, 'remove'));
   });
 
   client.on('messageReactionRemoveEmoji', async (message) => {
-    messageListeners['messageReactions'].forEach(listener => listener(message, 'remove'));
+    messageListeners['messageReactions']?.forEach(listener => listener(message, 'remove'));
   });
   
   client.on('messageReactionRemoveAll', async (message) => {
-    messageListeners['messageReactions'].forEach(listener => listener(message, 'removeAll'));
+    messageListeners['messageReactions']?.forEach(listener => listener(message, 'removeAll'));
   });
 
   // **************************
   // ********* Guilds *********
   // **************************
   client.on('guildCreate', async (message) => {
-    messageListeners['guildJoinLeave'].forEach(listener => listener(message, 'create'));
+    messageListeners['guildJoinLeave']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('guildDelete', async (message) => {
-    messageListeners['guildJoinLeave'].forEach(listener => listener(message, 'delete'));
+    messageListeners['guildJoinLeave']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('guildUpdate', async (message) => {
-    messageListeners['guildUpdate'].forEach(listener => listener(message, 'update'));
+    messageListeners['guildUpdate']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('guildScheduledEventCreate', async (message) => {
-    messageListeners['guildScheduledEvent'].forEach(listener => listener(message, 'create'));
+    messageListeners['guildScheduledEvent']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('guildScheduledEventDelete', async (message) => {
-    messageListeners['guildScheduledEvent'].forEach(listener => listener(message, 'delete'));
+    messageListeners['guildScheduledEvent']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('guildScheduledEventUpdate', async (message) => {
-    messageListeners['guildScheduledEvent'].forEach(listener => listener(message, 'update'));
+    messageListeners['guildScheduledEvent']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('guildScheduledEventUserAdd', async (message) => {
-    messageListeners['guildScheduledEventsMembers'].forEach(listener => listener(message, 'add'));
+    messageListeners['guildScheduledEventsMembers']?.forEach(listener => listener(message, 'add'));
   });
 
   client.on('guildScheduledEventUserRemove', async (message) => {
-    messageListeners['guildScheduledEventsMembers'].forEach(listener => listener(message, 'remove'));
+    messageListeners['guildScheduledEventsMembers']?.forEach(listener => listener(message, 'remove'));
   });
   
 
@@ -78,15 +78,15 @@ module.exports = () => {
   // ******** Channels ********
   // **************************
   client.on('channelCreate', async (message) => {
-    messageListeners['channels'].forEach(listener => listener(message, 'create'));
+    messageListeners['channels']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('channelDelete', async (message) => {
-    messageListeners['channels'].forEach(listener => listener(message, 'delete'));
+    messageListeners['channels']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('channelUpdate', async (message) => {
-    messageListeners['channels'].forEach(listener => listener(message, 'update'));
+    messageListeners['channels']?.forEach(listener => listener(message, 'update'));
   });
 
   // **************************
@@ -97,7 +97,7 @@ module.exports = () => {
 
     switch (interactionType) {
       case 'Ping':
-        messageListeners['ping'].forEach(listener => listener(interaction));
+        messageListeners['ping']?.forEach(listener => listener(interaction));
         break
       case 'ApplicationCommand':
         const command = client.commands.get(interaction.commandName);
@@ -132,168 +132,168 @@ module.exports = () => {
   // ********** User **********
   // **************************
   client.on('guildMemberAdd', async (message) => {
-    messageListeners['userJoinLeave'].forEach(listener => listener(message, 'join'));
+    messageListeners['userJoinLeave']?.forEach(listener => listener(message, 'join'));
   });
 
   client.on('guildMemberRemove', async (message) => {
-    messageListeners['userJoinLeave'].forEach(listener => listener(message, 'leave'));
+    messageListeners['userJoinLeave']?.forEach(listener => listener(message, 'leave'));
   });
 
   client.on('guildMemberUpdate', async (message) => {
-    messageListeners['userUpdate'].forEach(listener => listener(message, 'update'));
+    messageListeners['userUpdate']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('userUpdate', async (message) => {
-    messageListeners['userUpdate'].forEach(listener => listener(message, 'update'));
+    messageListeners['userUpdate']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('presenceUpdate', async (message) => {
-    messageListeners['userPresence'].forEach(listener => listener(message, 'update'));
+    messageListeners['userPresence']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('typingStart', async (message) => {
-    messageListeners['typingStart'].forEach(listener => listener(message));
+    messageListeners['typingStart']?.forEach(listener => listener(message));
   });
 
   // **************************
   // ********* Bans ***********
   // **************************
   client.on('guilBanAdd', async (message) => {
-    messageListeners['bans'].forEach(listener => listener(message, 'add'));
+    messageListeners['bans']?.forEach(listener => listener(message, 'add'));
   });
 
   client.on('guildBanRemove', async (message) => {
-    messageListeners['bans'].forEach(listener => listener(message, 'remove'));
+    messageListeners['bans']?.forEach(listener => listener(message, 'remove'));
   });
 
   // **************************
   // ******** Emojis **********
   // **************************
   client.on('emojiCreate', async (message) => {
-    messageListeners['emojis'].forEach(listener => listener(message, 'create'));
+    messageListeners['emojis']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('emojiDelete', async (message) => {
-    messageListeners['emojis'].forEach(listener => listener(message, 'delete'));
+    messageListeners['emojis']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('emojiUpdate', async (message) => {
-    messageListeners['emojis'].forEach(listener => listener(message, 'update'));
+    messageListeners['emojis']?.forEach(listener => listener(message, 'update'));
   });
 
   // **************************
   // ******** Invites *********
   // **************************
   client.on('inviteCreate', async (message) => {
-    messageListeners['invites'].forEach(listener => listener(message, 'create'));
+    messageListeners['invites']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('inviteDelete', async (message) => {
-    messageListeners['invites'].forEach(listener => listener(message, 'delete'));
+    messageListeners['invites']?.forEach(listener => listener(message, 'delete'));
   });
 
   // **************************
   // ********** Bot ***********
   // **************************
   client.on('ready', async (message) => {
-    messageListeners['botReady'].forEach(listener => listener(message));
+    messageListeners['botReady']?.forEach(listener => listener(message));
   });
 
   // **************************
   // ********* Roles **********
   // **************************
   client.on('roleCreate', async (message) => {
-    messageListeners['roles'].forEach(listener => listener(message, 'create'));
+    messageListeners['roles']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('roleDelete', async (message) => {
-    messageListeners['roles'].forEach(listener => listener(message, 'delete'));
+    messageListeners['roles']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('roleUpdate', async (message) => {
-    messageListeners['roles'].forEach(listener => listener(message, 'update'));
+    messageListeners['roles']?.forEach(listener => listener(message, 'update'));
   });
 
   // **************************
   // ********* Shards *********
   // **************************
   client.on('shardReady', async (message) => {
-    messageListeners['shards'].forEach(listener => listener(message, 'ready'));
+    messageListeners['shards']?.forEach(listener => listener(message, 'ready'));
   });
 
   client.on('shardDisconnect', async (message) => {
-    messageListeners['shards'].forEach(listener => listener(message, 'disconnect'));
+    messageListeners['shards']?.forEach(listener => listener(message, 'disconnect'));
   });
 
   client.on('shardError', async (message) => {
-    messageListeners['shards'].forEach(listener => listener(message, 'error'));
+    messageListeners['shards']?.forEach(listener => listener(message, 'error'));
   });
 
   client.on('shardReconnecting', async (message) => {
-    messageListeners['shards'].forEach(listener => listener(message, 'reconnecting'));
+    messageListeners['shards']?.forEach(listener => listener(message, 'reconnecting'));
   });
 
   client.on('shardResume', async (message) => {
-    messageListeners['shards'].forEach(listener => listener(message, 'resume'));
+    messageListeners['shards']?.forEach(listener => listener(message, 'resume'));
   });
 
   // **************************
   // ********* Stages *********
   // **************************
   client.on('stageInstanceCreate', async (message) => {
-    messageListeners['stages'].forEach(listener => listener(message, 'create'));
+    messageListeners['stages']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('stageInstanceDelete', async (message) => {
-    messageListeners['stages'].forEach(listener => listener(message, 'delete'));
+    messageListeners['stages']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('stageInstanceUpdate', async (message) => {
-    messageListeners['stages'].forEach(listener => listener(message, 'update'));
+    messageListeners['stages']?.forEach(listener => listener(message, 'update'));
   });
 
   // **************************
   // ******** Stickers ********
   // **************************
   client.on('stickerCreate', async (message) => {
-    messageListeners['stickers'].forEach(listener => listener(message, 'create'));
+    messageListeners['stickers']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('stickerDelete', async (message) => {
-    messageListeners['stickers'].forEach(listener => listener(message, 'delete'));
+    messageListeners['stickers']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('stickerUpdate', async (message) => {
-    messageListeners['stickers'].forEach(listener => listener(message, 'update'));
+    messageListeners['stickers']?.forEach(listener => listener(message, 'update'));
   });
 
   // **************************
   // ******** Threads *********
   // **************************
   client.on('threadCreate', async (message) => {
-    messageListeners['threads'].forEach(listener => listener(message, 'create'));
+    messageListeners['threads']?.forEach(listener => listener(message, 'create'));
   });
 
   client.on('threadDelete', async (message) => {
-    messageListeners['threads'].forEach(listener => listener(message, 'delete'));
+    messageListeners['threads']?.forEach(listener => listener(message, 'delete'));
   });
 
   client.on('threadUpdate', async (message) => {
-    messageListeners['threads'].forEach(listener => listener(message, 'update'));
+    messageListeners['threads']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('threadMembersUpdate', async (message) => {
-    messageListeners['threadMembers'].forEach(listener => listener(message, 'update'));
+    messageListeners['threadMembers']?.forEach(listener => listener(message, 'update'));
   });
 
   client.on('threadMemberUpdate', async (message) => {
-    messageListeners['threadMembers'].forEach(listener => listener(message, 'update'));
+    messageListeners['threadMembers']?.forEach(listener => listener(message, 'update'));
   });
 
   // **************************
   // ******** Webhooks ********
   // **************************
   client.on('webhookUpdate', async (message) => {
-    messageListeners['webhooks'].forEach(listener => listener(message));
+    messageListeners['webhooks']?.forEach(listener => listener(message));
   });
 }
