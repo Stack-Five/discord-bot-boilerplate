@@ -6,6 +6,7 @@ const startSetupWizard = require('../setup/startSetupWizard');
 const handleResetEnvironment = require('../setup/handleResetEnvironment');
 const installBot = require('../setup/installBot');
 const startSlashCommandWizard = require('../slashCommands/startSlashCommandWizard');
+const startEventHandlerWizard = require('../eventHandlers/startEventHandlerWizard');
 
 const {
   DISCORD_BOT_TOKEN,
@@ -80,6 +81,7 @@ module.exports = welcomeScreen = async () => {
       welcomeScreen();
       break;
     case 'generateEvent':
+      await startEventHandlerWizard();
       welcomeScreen();
       break;
     case 'generateSlashCommand':

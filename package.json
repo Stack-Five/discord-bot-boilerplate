@@ -46,7 +46,7 @@
     "commander": "^9.4.0",
     "eslint": "^8.22.0",
     "inquirer": "8.0.1",
-    "open": "^8.4.0",
-    "js-beautify": "^1.14.5"
+    "js-beautify": "^1.14.5",
+    "launch-editor": "^2.6.0"
   }
 }
