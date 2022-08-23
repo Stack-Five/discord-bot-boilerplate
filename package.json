@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "A boilerplate for creating interaction-based Discord bots",
   "main": "index.js",
+  "bin": {
+    "discord-bot": "bin/index.js"
+  },
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm link"
   },
-  "engines" : { 
-    "node" : ">=16.9.0"
+  "engines": {
+    "node": ">=16.9.0"
   },
   "repository": {
     "type": "git",
@@ -39,6 +43,11 @@
     "nodemon": "^2.0.19"
   },
   "devDependencies": {
-    "eslint": "^8.22.0"
+    "commander": "^9.4.0",
+    "eslint": "^8.22.0",
+    "inquirer": "8.0.1",
+    "js-beautify": "^1.14.5",
+    "launch-editor": "^2.6.0",
+    "open": "^8.4.0"
   }
 }
