@@ -1,16 +1,24 @@
 # Discord Bot Boilerplate
 
-This boilerplate is for single-tenant Discord bots (ie. installing on a single server).
+This boilerplate is for single-tenant Discord bots (ie. installing on a single server). It also ships with a CLI tool to help you start writing your bot quickly!
 
 ## Requirements
 
 1) Node.js version 16.x+
 2) Solid understanding of JavaScript
-3) A Discord account, and the Discord application installed
+3) A Discord account, and the Discord application installed on your computer
 
 ## Setting Up Your Environment
 
 1) Run `yarn` to install dependencies.
+2) Run `npx discord-bot` to start the Discord bot CLI tool.
+  - Using the arrow keys, select the "Set up your bot" option, and press enter. Walk through the wizard to set up your bot. If you have any difficulty finding keys and secrets, please check out the [environment variables](#environment-variables) section below.
+![CLI tool example](./docs/images/cli-welcome-screen.jpg)
+
+
+## Environment Variables
+
+
 2) Create a blank `.env` file in the root of this project, and copy the contents from the `.env.example` file into it. These are the environment variables we will be using.
 3) Navigate to the [Discord developer portal](https://discord.com/developers/applications) and sign in.
 4) Click on the `New Application` button, and add a name for your Discord bot.
