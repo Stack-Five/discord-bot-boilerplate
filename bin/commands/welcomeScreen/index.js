@@ -48,7 +48,7 @@ module.exports = welcomeScreen = async () => {
           },
           new inquirer.Separator(),
           {
-            name: '👂 Create an event handler (example: handle message events)',
+            name: '👂 Create an event handler (example: listen for emoji reactions)',
             value: 'generateEvent'
           },
           {

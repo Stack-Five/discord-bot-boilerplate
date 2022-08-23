@@ -17,7 +17,7 @@ module.exports = async () => {
           { name: 'Message Reactions', value: 'messageReactions' },
           { name: 'User Join / Leave', value: 'userJoinLeave' },
           { name: 'Threads', value: 'threads' },
-          { name: 'User Update', value: 'userUpdate' },
+          { name: 'User Updates', value: 'userUpdate' },
           new inquirer.Separator('------ OTHER HANDLERS ------'),
           { name: 'Bans', value: 'bans' },
           { name: 'Bot Ready', value: 'botReady' },

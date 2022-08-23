@@ -1,9 +1,9 @@
 const { client } = require('../../configuration/bot');
 
-module.exports = async (event) => {
+module.exports = async (channel) => {
   try {
-    const webhookId = event?.id;
-    console.log(`Webhook update event for Webhook ID: ${webhookId}`);
+    const channelId = channel?.id;
+    console.log(`Webhook update event for Channel ID: ${channelId}`);
   } catch(e) {
     console.error(`Webhook update event error: ${e}`);
   }
