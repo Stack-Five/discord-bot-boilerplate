@@ -66,7 +66,7 @@ The "Create an event handler" option will let you select from a list of supporte
 Triggers when a message is created, deleted, deleted in bulk, or updated.
 
 ##### Receives:
-message: [Message](https://discord.js.org/#/docs/main/stable/class/Message)
+message: [Message](https://discord.js.org/#/docs/main/stable/class/Message)\
 action: (`created`, `deleted`, `deleteBulk`, `updated`)
 
 ##### Example:
@@ -96,7 +96,7 @@ module.exports = async (message, action) => {
 Triggers when a role is created, deleted, or updated.
 
 ##### Receives:
-role: [Role](https://discord.js.org/#/docs/main/stable/class/Role)
+role: [Role](https://discord.js.org/#/docs/main/stable/class/Role)\
 action: (`created`, `deleted`, `updated`)
 
 ##### Example:
@@ -117,7 +117,7 @@ module.exports = async (event, action) => {
 Triggers when a channel is created, deleted, or updated.
 
 ##### Receives:
-guildChannel: [GuildChannel](https://discord.js.org/#/docs/main/stable/class/GuildChannel)
+guildChannel: [GuildChannel](https://discord.js.org/#/docs/main/stable/class/GuildChannel)\
 action: (`created`, `deleted`, `updated`)
 
 ##### Example:
@@ -173,7 +173,7 @@ module.exports = async (guildChannel, action) => {
 Triggers when an emoji reaction(s) is added or removed from a message.
 
 ##### Receives:
-messageReaction: [MessageReaction](https://discord.js.org/#/docs/main/stable/class/MessageReaction)
+messageReaction: [MessageReaction](https://discord.js.org/#/docs/main/stable/class/MessageReaction)\
 action: (`add`, `remove`, `removeAll`)
 
 ##### Example:
@@ -194,7 +194,7 @@ module.exports = async (messageReaction, action) => {
 Triggers when a user joins or leaves your server.
 
 ##### Receives:
-guildMember: [GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember)
+guildMember: [GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember)\
 action: (`join`, `leave`)
 
 ##### Example:
@@ -215,7 +215,7 @@ module.exports = async (guildMember, action) => {
 Triggers when a thread is created, deleted, or updated.
 
 ##### Receives:
-threadChannel: [ThreadChannel](https://discord.js.org/#/docs/main/stable/class/ThreadChannel)
+threadChannel: [ThreadChannel](https://discord.js.org/#/docs/main/stable/class/ThreadChannel)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
@@ -239,7 +239,7 @@ Triggers when a guild member updates. This can happen for a number of different 
 - Guild member's server avatar updated
 
 ##### Receives:
-guildMember: [GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember)
+guildMember: [GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember)\
 action: (`update`)
 
 ##### Example:
@@ -262,7 +262,7 @@ module.exports = async (guildMember, action) => {
 Triggers when a guild member receives a ban, or if a ban is removed.
 
 ##### Receives:
-guildBan: [GuildBan](https://discord.js.org/#/docs/main/stable/class/GuildBan)
+guildBan: [GuildBan](https://discord.js.org/#/docs/main/stable/class/GuildBan)\
 action: (`add`, `remove`)
 
 ##### Example:
@@ -302,7 +302,7 @@ module.exports = async (event) => {
 Triggers when an emoji is created, deleted, or updated.
 
 ##### Receives:
-guildEmoji: [GuildEmoji](https://discord.js.org/#/docs/main/stable/class/GuildEmoji)
+guildEmoji: [GuildEmoji](https://discord.js.org/#/docs/main/stable/class/GuildEmoji)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
@@ -323,7 +323,7 @@ module.exports = async (guildEmoji, action) => {
 Triggers when the bot is installed or removed from a guild.
 
 ##### Receives:
-guild: [Guild](https://discord.js.org/#/docs/main/stable/class/Guild)
+guild: [Guild](https://discord.js.org/#/docs/main/stable/class/Guild)\
 action: (`create`, `delete`)
 
 ##### Example:
@@ -344,7 +344,7 @@ module.exports = async (event, action) => {
 Triggers when a guild scheduled event is created, deleted, or updated.
 
 ##### Receives:
-guildScheduledEvent: [GuildScheduledEvent](https://discord.js.org/#/docs/main/stable/class/GuildScheduledEvent)
+guildScheduledEvent: [GuildScheduledEvent](https://discord.js.org/#/docs/main/stable/class/GuildScheduledEvent)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
@@ -365,7 +365,7 @@ module.exports = async (guildScheduledEvent, action) => {
 Triggers when a user subscribes or unsubscribes from a guild scheduled event
 
 ##### Receives:
-guildScheduledEvent: [GuildScheduledEvent](https://discord.js.org/#/docs/main/stable/class/GuildScheduledEvent)
+guildScheduledEvent: [GuildScheduledEvent](https://discord.js.org/#/docs/main/stable/class/GuildScheduledEvent)\
 action: (`subscribe`, `unsubscribe`)
 
 ##### Example:
@@ -406,7 +406,7 @@ module.exports = async (event) => {
 Triggers when a guild invite is created or deleted
 
 ##### Receives:
-invite: [Invite](https://discord.js.org/#/docs/main/stable/class/Invite)
+invite: [Invite](https://discord.js.org/#/docs/main/stable/class/Invite)\
 action: (`create`, `delete`)
 
 ##### Example:
@@ -446,14 +446,16 @@ module.exports = async (event) => {
 Triggers when a shard's websocket is ready, disconnected, errors, is reconnecting, and resumed.
 
 ##### Receives:
-
-shardDetails: {
+shardDetails: 
+```js
+{
   shardId?: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number),
   unavailableGuilds?: [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set),
   event?: [CloseEvent](https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent),
   error?: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error),
   replayedEvents?: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number),
 }
+```
 action: (`ready`, `disconnect`, `error`, `reconnecting`, `resume`)
 
 ##### Example:
@@ -481,7 +483,7 @@ action) => {
 Triggers when stage is created, deleted, or updated
 
 ##### Receives:
-stageInstance: [StageInstance](https://discord.js.org/#/docs/main/stable/class/StageInstance)
+stageInstance: [StageInstance](https://discord.js.org/#/docs/main/stable/class/StageInstance)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
@@ -502,7 +504,7 @@ module.exports = async (stageInstance, action) => {
 Triggers when sticker is created, deleted, or updated
 
 ##### Receives:
-sticker: [Sticker](https://discord.js.org/#/docs/main/stable/class/Sticker)
+sticker: [Sticker](https://discord.js.org/#/docs/main/stable/class/Sticker)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
@@ -523,7 +525,7 @@ module.exports = async (sticker, action) => {
 Triggers when a guild member(s) is added or removed from a thread
 
 ##### Receives:
-sticker: [Sticker](https://discord.js.org/#/docs/main/stable/class/Sticker)
+sticker: [Sticker](https://discord.js.org/#/docs/main/stable/class/Sticker)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
@@ -570,8 +572,8 @@ module.exports = async (typing) => {
 Triggers when a guild member's presence (e.g. status, activity) has changed
 
 ##### Receives:
-oldPresence: [Presence](https://discord.js.org/#/docs/main/stable/class/Presence)
-newPresence: [Presence](https://discord.js.org/#/docs/main/stable/class/Presence)
+oldPresence: [Presence](https://discord.js.org/#/docs/main/stable/class/Presence)\
+newPresence: [Presence](https://discord.js.org/#/docs/main/stable/class/Presence)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
@@ -592,8 +594,8 @@ module.exports = async (presence) => {
 Triggers when a guild member changes voice state - e.g. joins/leaves a channel, mutes/unmutes.
 
 ##### Receives:
-oldState: [VoiceState](https://discord.js.org/#/docs/main/stable/class/VoiceState)
-newState: [VoiceState](https://discord.js.org/#/docs/main/stable/class/VoiceState)
+oldState: [VoiceState](https://discord.js.org/#/docs/main/stable/class/VoiceState)\
+newState: [VoiceState](https://discord.js.org/#/docs/main/stable/class/VoiceState)\
 action: (`create`, `delete`, `update`)
 
 ##### Example:
