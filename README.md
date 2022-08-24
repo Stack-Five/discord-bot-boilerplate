@@ -62,7 +62,8 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 
 ## Setting Up Your Environment
 
-1) Clone this repo
+1) Click the "Use This Template" button to clone this repo.
+![Use this template](./docs/images/use-this-template.jpg)
 2) Run `yarn` to install dependencies.
 3) Run `npx discord-bot` to start the Discord bot CLI tool.
   - Using the arrow keys, select the "Set up your bot" option, and press enter. Proceed through the wizard to set up your bot's environment variables. If you have any difficulty finding keys and secrets, please check out the [environment variable reference](#environment-variable-reference) section. If you'd like to set this up without using the CLI tool, you can reference the [manual setup](#manual-setup) section.
@@ -844,7 +845,7 @@ NOTE: This command will fail on server administrators (`DiscordAPIError[50013]: 
 ![Rename command example](./docs/images/rename.jpg)
 
 #### Other Examples
-There are many other patterns and responses you can use. For more examples, you can check out the following Discord.js samples:\
+There are many other patterns and responses you can use. For more examples, you can check out the following Discord.js samples:
 - [Slash commands](https://discordjs.guide/interactions/slash-commands.html)
 - [Buttons](https://discordjs.guide/interactions/buttons.html)
 - [Select Menus](https://discordjs.guide/interactions/select-menus.html)
