@@ -8,14 +8,63 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 2) Solid understanding of JavaScript
 3) A Discord account, and the Discord application installed on your computer
 
+## Table of Contents
+- [Setting Up Your Environment](#setting-up-your-environment)
+  - [Environment Variable Reference](#environment-variable-reference)
+- [CLI Commands](#cli-commands)
+  - [Set up your bot](#set-up-your-bot)
+  - [Install the bot on your Discord server](#install-the-bot-on-your-discord-server)
+  - [Run the bot in dev mode](#run-the-bot-in-dev-mode)
+  - [Create a slash command](#create-a-slash-command)
+  - [Create an event handler](#create-an-event-handler)
+- [Supported Event Handlers](#supported-event-handlers)
+  - [Common](#common)
+    - [Messages](#messages)
+    - [Roles](#roles)
+    - [Channels](#channels)
+    - [Message Reactions](#message-reactions)
+    - [User Join / Leave](#user-join--leave)
+    - [Threads](#threads)
+    - [User Updates](#user-updates)
+  - [Other Events](#other-events)
+    - [Bans](#bans)
+    - [Bot Ready](#bot-ready)
+    - [Emojis](#emojis)
+    - [Guild Join / Leave](#guild-join--leave)
+    - [Guild Scheduled Events](#guild-scheduled-events)
+    - [Guild Scheduled Event Members](#guild-scheduled-event-members)
+    - [Guild Update](#guild-update)
+    - [Invites](#invites)
+    - [Ping](#ping)
+    - [Shards](#shards)
+    - [Stages](#stages)
+    - [Stickers](#stickers)
+    - [Thread Members](#thread-members)
+    - [Typing Start](#typing-start)
+    - [User Presence](#user-presence)
+    - [Voice](#voice)
+    - [Webhooks](#webhooks)
+- [The Client](#the-client)
+- [Common Patterns](#common-patterns)
+  - [Responding to a user's interaction in a slash command](#responding-to-a-users-interaction-in-a-slash-command)
+  - [Editing a bot's response in a slash command](#editing-a-bots-response-in-a-slash-command)
+  - [Sending a message to a channel after an interaction event](#sending-a-message-to-a-channel-after-an-interaction-event)
+  - [Responding to a message with some text and an action button from an interaction event](#responding-to-a-message-with-some-text-and-an-action-button-from-an-interaction-event)
+  - [Changing a user's server nickname from a slash command](#changing-a-users-server-nickname-from-a-slash-command)
+  - [Other Examples](#other-examples)
+- [Manual Setup (NOT RECOMMENDED)](#manual-setup-not-recommended)
+- [Installing Your Bot](#installing-your-bot)
+- [Important Notes](#important-notes)
+
 ## Setting Up Your Environment
 
-1) Run `yarn` to install dependencies.
-2) Run `npx discord-bot` to start the Discord bot CLI tool.
+1) Clone this repo
+2) Run `yarn` to install dependencies.
+3) Run `npx discord-bot` to start the Discord bot CLI tool.
   - Using the arrow keys, select the "Set up your bot" option, and press enter. Proceed through the wizard to set up your bot's environment variables. If you have any difficulty finding keys and secrets, please check out the [environment variable reference](#environment-variable-reference) section. If you'd like to set this up without using the CLI tool, you can reference the [manual setup](#manual-setup) section.
 ![CLI tool example](./docs/images/cli-welcome-screen.jpg)
-3) If you didn't install your bot in the previous step, run `npx discord-bot` and select the "Install the bot on your Discord Server" option. Open the link in your browser, and follow the steps, and your bot will be added to your server!
-3) Reference the [CLI Commands](#cli-commands) section below to start writing commands and event handlers.
+4) If you didn't install your bot in the previous step, run `npx discord-bot` and select the "Install the bot on your Discord Server" option. Open the link in your browser, and follow the steps, and your bot will be added to your server!
+5) Reference the [CLI Commands](#cli-commands) section below to start writing commands and event handlers.
 
 ## Environment Variable Reference
 
@@ -52,12 +101,16 @@ If you need to run the install step again, you can use this to add your bot to y
 You can use this to start your bot. This will deploy your commands, and listen for events. As long as your bot is installed on your server and your bot is running, you will receive events from your Discord server! You can also run dev mode without the CLI tool by running `yarn dev`.
 
 #### Create a slash command
+Slash commands let you define "actions" that users can interact with. An example of a slash command might be something like:
+1) A user types `/hello`
+2) The bot responds with `World!`
+
+In the CLI tool, the "Create a slash command" option will walk you through a series of steps to create your own. It will ask you to name your command, give it a description, and optionally, add some arguments such as a string, a user, a channel, a role, etc. Once you have followed the steps in the wizard, the CLI will generate a skeleton command in `src/slashCommands/[commandName].js`. You will then be able to modify this file to add the functionality you want! To learn more about what you can do in slash commands, check out the [common patterns](#common-patterns) section.
 
 #### Create an event handler
 Event handlers let you execute code when a specific event happens. For example, when a user sends a message, adds an emoji reaction, changes their name, etc. You can reference the [full list](#supported-event-handlers) below, and when you can expect them to trigger.
 
-The "Create an event handler" option will let you select from a list of supported events. You will be asked to give it a name, and a file will be automatically created with some boilerplate code inside of `src/events/[eventName]`. You can now modify this code to add the functionality that you want! For a full list of supported methods and data structures, you can reference the [events in the official Discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Client).
-
+In the CLI tool, the "Create an event handler" option will let you select from a list of supported events. You will be asked to give it a name, and a file will be automatically created with some boilerplate code inside of `src/events/[eventName]`. You can now modify this code to add the functionality that you want! For a full list of supported methods and data structures, you can reference the [events in the official Discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Client).
 
 ## Supported Event Handlers
 
@@ -632,7 +685,168 @@ module.exports = async (channel) => {
 };
 ```
 
-## Testing your Bot
+## The Client
+When you slash commands and event listeners, you'll notice that a `client` is imported into your file. You can use this to handle everything from responding to the user's input, sending a user a private direct message, and much more. For common usecases, see the [common patterns](#common-patterns) section.
+
+## Common Patterns
+#### Responding to a user's interaction in a slash command
+```js
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('hello')
+    .setDescription(
+      'Will respond with "world"'
+    ),
+
+  async execute(interaction) {
+    try {
+      const { user } = interaction;
+      // Send a direct message to the user
+      await user.send({ content: `World!` });
+
+      // Respond in the channel the user sent the message in
+      await interaction.reply(`World!`);
+    } catch (e) {
+      console.log(`There was an error with the 'hello' command: ${e}`);
+    }
+  },
+};
+```
+In the example above, you can see we are deconstructing the user from the interaction object. We then send the user a direct message with the `reply()` method, and then we send a response to the channel that the slash command was used in with the `reply()` method.\
+This interaction object is what our bot receives when a user uses a slash command. There are many other methods and parameters available. For a full list, you can check out the [Discord documentation](https://discord.com/developers/docs/interactions/receiving-and-responding).
+
+#### Editing a bot's response in a slash command
+```js
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const wait = require('node:timers/promises').setTimeout;
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('hello')
+    .setDescription(
+      'Will respond with "world"'
+    ),
+
+  async execute(interaction) {
+    try {
+      const { user } = interaction;
+
+      // Respond in the channel the user sent the message in
+      await interaction.reply(`World!`);
+      // Wait four seconds
+      await wait(4000);
+      // Edit the reply
+      await interaction.editReply('World (edited)!');
+    } catch (e) {
+      console.log(`There was an error with the 'hello' command: ${e}`);
+    }
+  },
+};
+```
+
+#### Sending a message to a channel after an interaction event
+```js
+const { client } = require('../../configuration/bot');
+
+// Sample: If user sends 'ping' in a channel, the bot will respond with 'Pong'
+module.exports = async (message, action) => {
+  try {
+    if (message.author.bot) return;
+
+    if (message.content.toUpperCase() === 'PING') {
+      const channel = await client.channels.fetch(message.channel.id);
+
+      channel.send({
+        content: 'Pong'
+      });
+    }
+
+  } catch(e) {
+    console.error(`Ping pong error: ${e}`);
+  }
+};
+```
+
+#### Responding to a message with some text and an action button from an interaction event
+```js
+const { client } = require('../../configuration/bot');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+
+// Sample: If user sends 'ping' in a channel, the bot will respond with 'Pong'
+module.exports = async (message, action) => {
+  try {
+    if (message.author.bot) return;
+
+    if (message.content.toUpperCase() === 'PING') {
+      const channel = await client.channels.fetch(message.channel.id);
+
+      const button = new ActionRowBuilder()
+        .addComponents(
+          new ButtonBuilder()
+            .setLabel('Click Me!')
+            .setURL('https://stackfive.io')
+            .setStyle(ButtonStyle.Link),
+        );
+
+      channel.send({
+        content: 'Pong',
+        components: [button]
+      });
+    }
+
+  } catch(e) {
+    console.error(`Ping pong error: ${e}`);
+  }
+};
+```
+![Example with a button](./docs/images/button-example.jpg)
+
+#### Changing a user's server nickname from a slash command
+```js
+const { client } = require('../configuration/bot');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('rename')
+    .setDescription(
+      'Will rename you'
+    )
+    .addStringOption((option) =>
+      option
+        .setName('new-name')
+        .setDescription('What you would like to change your nickname to')
+        .setRequired(true)),
+
+  async execute(interaction) {
+    try {
+      const newName  = interaction.options.getString('new-name');
+      const guild = await client.guilds.fetch(process.env.DISCORD_GUILD_ID);
+      const user = await guild.members.fetch(interaction?.user?.id);
+
+      await user.setNickname(newName);
+
+      // Respond in the channel the user sent the message in
+      await interaction.reply({ content: `Your username has been updated!`, ephemeral: true });
+    } catch (e) {
+      console.log(`There was an error with the 'hello' command: ${e}`);
+    }
+  },
+};
+```
+NOTE: This command will fail on server administrators (`DiscordAPIError[50013]: Missing Permissions`). Bots can not change nicknames of server admins.
+![Rename command example](./docs/images/rename.jpg)
+
+#### Other Examples
+There are many other patterns and responses you can use. For more examples, you can check out the following Discord.js samples:\
+- [Slash commands](https://discordjs.guide/interactions/slash-commands.html)
+- [Buttons](https://discordjs.guide/interactions/buttons.html)
+- [Select Menus](https://discordjs.guide/interactions/select-menus.html)
+- [Autocomplete](https://discordjs.guide/interactions/autocomplete.html)
+- [Modals](https://discordjs.guide/interactions/modals.html)
+- [Context Menus](https://discordjs.guide/interactions/context-menus.html)
 
 ## Manual Setup (NOT RECOMMENDED)
 
@@ -656,27 +870,33 @@ module.exports = async (channel) => {
 ## Installing Your Bot
 Run `npx discord-bot` and select the "Install the bot on your Discord Server" option. Open the link in your browser, and follow the steps, and your bot will be added to your server!
 
-## Closing remarks
+## Important Notes
 
-Your boilerplate server MUST be running in order for your commands to register. Your bot will not be able to receive interactions, or send responses if your server is not running. Also note, your bot configuration can only run on one server at a time. If you are doing active development, and you have deployed your bot, it is recommended that you create a development bot and Discord server for testing out your code, and a production bot and Discord server.
+Your boilerplate server MUST be running in order for your commands to register. Your bot will not be able to receive interactions, or send responses if your server is not running. Also note, your bot configuration can only run on one server at a time. If you are doing active development and you have deployed your bot somewhere, it is recommended that you create a separate bot application for production and development to avoid collisions.
 
 ## Deployment
 
 You can deploy your bot anywhere you'd like. For the sake of simplicity, you can easily [deploy to Heroku](https://devcenter.heroku.com/articles/github-integration). Just make sure you set up all of your environment variables on your Heroku server when you deploy your bot, and everything else should work as expected.
 
 ## Enable Discord Developer Mode
+
 If you need to enable Discord developer mode, follow these steps:
 
 1) Open up the Discord app
 2) Click on the settings cog in the bottom left corner
 3) Go to Advanced (near the bottom)
 4) Toggle `Developer Mode` on
-5) Repeat step 11 above.
-
 
 ## Contributing
 
-Please create a pull request with any boilerplate-related changes you think might be useful to other developers.
+PRs are welcome. A contributing guide will be released soon.
+
+## In Progress
+
+- Testing
+- Additional CLI utilities to add more helpers to commands and events such as button builders, modal builders, etc.
+- More examples
+- Typescript boilerplate
 
 ## Contact
 
