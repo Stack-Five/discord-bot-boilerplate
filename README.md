@@ -840,7 +840,7 @@ module.exports = {
   },
 };
 ```
-NOTE: This command will fail on server administrators (`DiscordAPIError[50013]: Missing Permissions`). Bots can not change nicknames of server admins.
+NOTE: This command will fail on server administrators (`DiscordAPIError[50013]: Missing Permissions`). Bots can not change nicknames of server admins.\
 ![Rename command example](./docs/images/rename.jpg)
 
 #### Other Examples
