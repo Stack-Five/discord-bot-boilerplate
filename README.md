@@ -1,6 +1,7 @@
-# Discord Bot Boilerplate
+# Discord Bot Boilerplate BETA
 
-This boilerplate is for single-tenant Discord bots (ie. installing on a single server). It also ships with a CLI tool to help you start writing your bot quickly!
+This boilerplate is for single-tenant Discord bots (ie. installing on a single server). It also ships with a CLI tool to help you start writing your bot quickly!\
+**This is currently in beta**, and features may change quickly before the stable release. Please check back here regularly for updates. Contributions are also welcome!
 
 ## Requirements
 
@@ -55,6 +56,9 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 - [Manual Setup (NOT RECOMMENDED)](#manual-setup-not-recommended)
 - [Installing Your Bot](#installing-your-bot)
 - [Important Notes](#important-notes)
+- [Contributing](#contributing)
+- [In Progress](#in-progress)
+- [Contact](#contact)
 
 ## Setting Up Your Environment
 
@@ -84,10 +88,10 @@ Click the "Reset Token" button, to generate a new bot token. This is what you wi
 ![Generate a bot token](./docs/images/bot-token-2.jpg)
 
 #### DISCORD_GUILD_ID
-In the Discord app, make sure that "Developer Mode" is turned on in your settings:
+In the Discord app, make sure that "Developer Mode" is turned on in your settings:\
 ![Developer mode](./docs/images/dev-mode.jpg)
 
-Next, right click on the server that you want to deploy your bot to. Click on the "Copy ID" button. Use this as your environment variable.
+Next, right click on the server that you want to deploy your bot to. Click on the "Copy ID" button. Use this as your environment variable.\
 ![Guild ID](./docs/images/guild-id.jpg)
 
 ## The Client
