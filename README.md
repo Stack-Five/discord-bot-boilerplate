@@ -91,7 +91,7 @@ Next, right click on the server that you want to deploy your bot to. Click on th
 ![Guild ID](./docs/images/guild-id.jpg)
 
 ## The Client
-When you slash commands and event listeners, you'll notice that a `client` is imported into your file. You can use this to handle everything from responding to the user's input, sending a user a private direct message, and much more. For common usecases, see the [common patterns](#common-patterns) section.
+When you create slash commands and event listeners with the CLI, you'll notice that a `client` is imported into your file. You can use this to handle everything from fetching guild details, fetching a list of users and channels, responding to the user's input, sending a user a private direct message, and much more. For common usecases, see the [common patterns](#common-patterns) section.
 
 ## CLI Commands
 #### Set up your bot
