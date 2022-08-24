@@ -1,9 +1,9 @@
 const { ChannelType } = require('discord.js');
 const { client } = require('../../configuration/bot');
 
-module.exports = async (event, action) => {
+module.exports = async (guildChannel, action) => {
   try {
-    const channelType = ChannelType[event.type];
+    const channelType = ChannelType[guildChannel.type];
 
     switch(channelType) {
       case 'GUILD_TEXT':

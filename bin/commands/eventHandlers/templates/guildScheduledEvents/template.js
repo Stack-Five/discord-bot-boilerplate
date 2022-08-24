@@ -1,8 +1,8 @@
 const { client } = require('../../configuration/bot');
 
-module.exports = async (event, action) => {
+module.exports = async (guildScheduledEvent, action) => {
   try {
-    const eventId = event?.id;
+    const eventId = guildScheduledEvent?.id;
     console.log(`Guild Scheduled Event ${action} for guild ID: ${eventId}`);
   } catch(e) {
     console.error(`Guild scheduled event error: ${e}`);

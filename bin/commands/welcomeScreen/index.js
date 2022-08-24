@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const open = require('open');
-const exec = require('child_process').exec;
+const execSync = require('child_process').execSync;
 
 const startSetupWizard = require('../setup/startSetupWizard');
 const handleResetEnvironment = require('../setup/handleResetEnvironment');
@@ -48,7 +48,7 @@ module.exports = welcomeScreen = async () => {
           },
           new inquirer.Separator(),
           {
-            name: '👂 Create an event handler (example: handle message events)',
+            name: '👂 Create an event handler (example: listen for emoji reactions)',
             value: 'generateEvent'
           },
           {
@@ -91,20 +91,15 @@ module.exports = welcomeScreen = async () => {
       break;
     case 'runDev':
       console.clear();
-      const t = require('../../../')
-      exec('yarn dev',
-        (error, stdout, stderr) => {
-            console.log(`stdout: ${stdout}`);
-            console.log(`stderr: ${stderr}`);
-            if (error !== null) {
-                console.log(`exec error: ${error}`);
-            }
-      });
+
+      try {
+        await execSync('./node_modules/.bin/nodemon index.js', { stdio: 'inherit' });
+      } catch(e) {}
       break;
     case 'help':
       open('https://stackfive.io');
-      break;
+      break; 
   }
-
+ 
   init = false;
 };

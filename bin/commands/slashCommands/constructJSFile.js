@@ -24,6 +24,8 @@ const formatCommands = (options) => {
 
 module.exports = (configuration) => {
   let codeOutput = `
+    const { client } = require('../configuration/bot');
+
     const { SlashCommandBuilder } = require('@discordjs/builders');
 
     module.exports = {
