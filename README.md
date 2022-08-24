@@ -1,6 +1,7 @@
-# Discord Bot Boilerplate
+# Discord Bot Boilerplate BETA
 
-This boilerplate is for single-tenant Discord bots (ie. installing on a single server). It also ships with a CLI tool to help you start writing your bot quickly!
+This boilerplate is for single-tenant Discord bots (ie. installing on a single server). It also ships with a CLI tool to help you start writing your bot quickly!\
+**This is currently in beta**, and features may change quickly before the stable release. Please check back here regularly for updates. Contributions are also welcome!
 
 ## Requirements
 
@@ -55,6 +56,9 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 - [Manual Setup (NOT RECOMMENDED)](#manual-setup-not-recommended)
 - [Installing Your Bot](#installing-your-bot)
 - [Important Notes](#important-notes)
+- [Contributing](#contributing)
+- [In Progress](#in-progress)
+- [Contact](#contact)
 
 ## Setting Up Your Environment
 
