@@ -11,6 +11,7 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 ## Table of Contents
 - [Setting Up Your Environment](#setting-up-your-environment)
   - [Environment Variable Reference](#environment-variable-reference)
+- [The Client](#the-client)
 - [CLI Commands](#cli-commands)
   - [Set up your bot](#set-up-your-bot)
   - [Install the bot on your Discord server](#install-the-bot-on-your-discord-server)
@@ -44,7 +45,6 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
     - [User Presence](#user-presence)
     - [Voice](#voice)
     - [Webhooks](#webhooks)
-- [The Client](#the-client)
 - [Common Patterns](#common-patterns)
   - [Responding to a user's interaction in a slash command](#responding-to-a-users-interaction-in-a-slash-command)
   - [Editing a bot's response in a slash command](#editing-a-bots-response-in-a-slash-command)
@@ -89,6 +89,9 @@ In the Discord app, make sure that "Developer Mode" is turned on in your setting
 
 Next, right click on the server that you want to deploy your bot to. Click on the "Copy ID" button. Use this as your environment variable.
 ![Guild ID](./docs/images/guild-id.jpg)
+
+## The Client
+When you slash commands and event listeners, you'll notice that a `client` is imported into your file. You can use this to handle everything from responding to the user's input, sending a user a private direct message, and much more. For common usecases, see the [common patterns](#common-patterns) section.
 
 ## CLI Commands
 #### Set up your bot
@@ -684,9 +687,6 @@ module.exports = async (channel) => {
   }
 };
 ```
-
-## The Client
-When you slash commands and event listeners, you'll notice that a `client` is imported into your file. You can use this to handle everything from responding to the user's input, sending a user a private direct message, and much more. For common usecases, see the [common patterns](#common-patterns) section.
 
 ## Common Patterns
 #### Responding to a user's interaction in a slash command
