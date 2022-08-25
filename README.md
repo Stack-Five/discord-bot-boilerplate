@@ -63,7 +63,7 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 - [Contact](#contact)
 
 ## Introduction and Folder Structure
-This boilerplate was created to help you start writing Discord bots quickly! After you run the setup below, you can either use the CLI tool to help you generate slash commands and event listeners, or you can manually create them on your own. This boilerplate uses Discord.js to help you write slash commands and event listeners. You can learn more about how it works [here](https://discordjs.guide/#before-you-begin)\
+This boilerplate was created to help you start writing Discord bots quickly! After you run the setup below, you can either use the CLI tool to help you generate slash commands and event listeners, or you can manually create them on your own. This boilerplate uses Discord.js to help you write slash commands and event listeners. You can learn more about how it works [here](https://discordjs.guide/#before-you-begin).\
 The folder structure in this boilerplate is opinionated and will help you automatically deploy your slash commands, and mount your event listeners:
 
 ### /src/slashCommands
