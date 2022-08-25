@@ -1,15 +1,17 @@
 # Discord Bot Boilerplate BETA
-
 This boilerplate is for single-tenant Discord bots (ie. installing on a single server). It also ships with a CLI tool to help you start writing your bot quickly!\
 **This is currently in beta**, and features may change quickly before the stable release. Please check back here regularly for updates. Contributions are also welcome!
 
 ## Requirements
-
 1) Node.js version 16.x+
 2) Solid understanding of JavaScript
 3) A Discord account, and the Discord application installed on your computer
+4) Basic understanding of [how Discord.js works](https://discordjs.guide/#before-you-begin)
 
 ## Table of Contents
+- [Introduction and Folder Structure](#introduction-and-folder-structure)
+  - [/src/slashCommands](#srcslashcommands)
+  - [/src/events](#srcevents)
 - [Setting Up Your Environment](#setting-up-your-environment)
   - [Environment Variable Reference](#environment-variable-reference)
 - [The Client](#the-client)
@@ -59,6 +61,16 @@ This boilerplate is for single-tenant Discord bots (ie. installing on a single s
 - [Contributing](#contributing)
 - [In Progress](#in-progress)
 - [Contact](#contact)
+
+## Introduction and Folder Structure
+This boilerplate was created to help you start writing Discord bots quickly! After you run the setup below, you can either use the CLI tool to help you generate slash commands and event listeners, or you can manually create them on your own. This boilerplate uses Discord.js to help you write slash commands and event listeners. You can learn more about how it works [here](https://discordjs.guide/#before-you-begin)\
+The folder structure in this boilerplate is opinionated and will help you automatically deploy your slash commands, and mount your event listeners:
+
+### /src/slashCommands
+This is where your slash commands will live. You can either create files directly in this folder, or you can create folders in here to organize your code. When you run your project in dev or production mode, it will look for all JavaScript files under this directory, and it will deploy them to Discord so that they are available to your bot. You can either manually create files in here, OR you can use the [CLI tool](#cli-commands) to help generate files and boilerplate code that will be saved to this directory. To learn more about how Slash commands work with Discord.js, you can read about it [here](https://discordjs.guide/interactions/slash-commands.html#registering-slash-commands).
+
+### src/events
+This is where all of your [event handlers](#supported-event-handlers) will live. In this directory, you will see a list of folders that correspond to all of the events supported in Discord.js version 14. You can either manually create JavaScript files in these directories, OR you can use the [CLI tool](#cli-commands) to help generate files and boilerplate code that will be saved into the event listener that you choose. JavaScript files that live in each of the event folders will receive the corresponding event from Discord. If you have multiple files in these directories, they will all receive the event. For example, all .js files that live under the `src/events/messages` folder will trigger whenever a message is created, deleted, or updated in Discord. You can learn more about these events and the data your .js files will receive [here](#supported-event-handlers).
 
 ## Setting Up Your Environment
 
