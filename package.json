@@ -1,6 +1,6 @@
 {
   "name": "discord-bot-boilerplate",
-  "version": "1.0.0",
+  "version": "v0.3.0-beta",
   "description": "A boilerplate for creating interaction-based Discord bots",
   "main": "index.js",
   "bin": {
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --exit --reporter spec --timeout 30000 test/*",
     "postinstall": "npm link"
   },
   "engines": {
@@ -43,11 +43,14 @@
     "nodemon": "^2.0.19"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-files": "^1.4.0",
     "commander": "^9.4.0",
     "eslint": "^8.22.0",
     "inquirer": "8.0.1",
     "js-beautify": "^1.14.5",
     "launch-editor": "^2.6.0",
+    "mocha": "^10.0.0",
     "open": "^8.4.0"
   }
 }

@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: macos-12
+    environment: test
 
     strategy:
       matrix:
@@ -23,3 +24,8 @@ jobs:
         cache: 'yarn'
     - run: yarn
     - run: yarn test
+      env: 
+        DISCORD_API_VERSION: ${{ secrets.DISCORD_API_VERSION }} 
+        DISCORD_APP_ID: ${{ secrets.DISCORD_APP_ID }} 
+        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }} 
+        DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }} 
