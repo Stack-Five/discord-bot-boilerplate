@@ -8,11 +8,13 @@ const installBot = require('../setup/installBot');
 const startSlashCommandWizard = require('../slashCommands/startSlashCommandWizard');
 const startEventHandlerWizard = require('../eventHandlers/startEventHandlerWizard');
 
+const packageJson = require('../../../package.json');
+
 const {
   DISCORD_BOT_TOKEN,
   DISCORD_APP_ID,
   DISCORD_GUILD_ID,
-  DISCORD_API_VERSION
+  DISCORD_API_VERSION,
 } = process.env;
 
 let init = true;
@@ -59,6 +61,10 @@ module.exports = welcomeScreen = async () => {
           {
             name: '❓ Get help from Stack Five',
             value: 'help',
+          },
+          {
+            name: '＃ Check version',
+            value: 'version',
           }
         ],
       },
@@ -97,8 +103,14 @@ module.exports = welcomeScreen = async () => {
       } catch(e) {}
       break;
     case 'help':
-      open('https://stackfive.io');
+      try {
+        open('https://stackfive.io');
+      } catch(e) {}
+      console.log('Sending you to https://stackfive.io!');
       break; 
+    case 'version':
+      console.log(packageJson.version);
+      break;
   }
  
   init = false;
